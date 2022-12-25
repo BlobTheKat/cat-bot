@@ -1,0 +1,11 @@
+# Install if node_modules not present
+[ -d node_modules ] || npm i > /dev/null
+# Ask for token if there is none
+function asktoken(){
+	printf "Bot token: "
+	read t
+	printf $t > TOKEN
+}
+[ -f TOKEN ] || asktoken
+# Run
+node --no-warnings index.js
